@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
+import { getTimeStamp, addScrollbarSpace, setMessageCount, clearFields } from './timeStampandMore.js'
 
-let maxCharLength, textLength, currentVal, currentChar, limit, textField, count, currentCount, lastWord, excess
+let maxCharLength, textLength, currentVal, textField, count, currentCount, lastWord, excess
 
 let textMessages = []
 
-let messagesCount = 0
+export let messagesCount = 0
 
 textMessages = JSON.parse(localStorage.getItem("TEXTMESSAGE"))
 
@@ -132,52 +133,3 @@ function deleteMessage(e) {
 }
 
 
-function clearFields() {
-    document.querySelector('.maxLength').value = ""
-    textField.value = ""
-    document.querySelector('.currentCount').textContent = "?"
-    document.querySelector('.count').textContent = 0 + " / " + 0
-}
-
-
-function addScrollbarSpace() {
-    if (document.querySelector('.message').scrollHeight > document.querySelector('.message').clientHeight) {
-        document.querySelector('.message').classList.add('addSpace')
-    } else {
-        document.querySelector('.message').classList.remove('addSpace')
-    }
-}
-
-
-function setMessageCount() {
-    if (messagesCount === 1) {
-        document.querySelector('.messagesCount').textContent = messagesCount + " message"
-    } else {
-        document.querySelector('.messagesCount').textContent = messagesCount + " messages"
-    }
-}
-
-
-function getTimeStamp() {
-    let time = new Date();
-    let day = time.getDate();
-    let month = time.getMonth() + 1;
-    let year = time.getFullYear();
-    let hour = time.getHours();
-    let minute = time.getMinutes();
-
-    if (day < 10) {
-        day = '0' + day
-    }
-    if (month < 10) {
-        month = '0' + month
-    }
-    if (minute < 10) {
-        minute = '0' + minute
-    }
-    if (hour < 10) {
-        hour = '0' + hour
-    }
-    let created = year + "-" + month + '-' + day + ' ' + hour + ':' + minute + 'h';
-    return created;
-}
