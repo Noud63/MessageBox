@@ -168,11 +168,9 @@ input {
     border-radius: 10px;
 }
 
-Track
-.message::-webkit-scrollbar-track {
+Track.message::-webkit-scrollbar-track {
   background: rgb(58, 58, 58); 
- 
-}
+ }
  
 .message::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#9c9c9c),to(#242424));
