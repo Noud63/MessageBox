@@ -100,7 +100,7 @@ function addMessage() {
             message: textField.value,
             posted: getTimeStamp()
         }
-        console.log(obj)
+
         addScrollbarSpace()
 
         textMessages.push(obj)
